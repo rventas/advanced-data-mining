@@ -97,7 +97,7 @@ data banco_sample;
 	else if 5181 < NEMPLOYED <= 5217 then NEMPLOYED = 3;
 	else NEMPLOYED = 4;
 run;
-/*********************************************************************************************************/
+
 %macro mglmselect (semi_ini, semi_fin, variables);
 ods trace on /listing;
 %do frac=3 %to 5;
@@ -140,6 +140,9 @@ proc sql; drop table modelos,efectos,ajuste,t_fraccion; quit;
 	  					 education*EMPVARRATE education*INDPRICE education*INDCONF education*EURIBOR 
 	  					 education*NEMPLOYED);	  					 
 
+proc freq data=t_models (keep=effects);  tables effects /norow nocol nopercent; run;	  					 
+
+/* De los resultados obtenidos, me quedo con los dos modelos con mayor frecuencia */
 proc glmselect data=banco_sample plots=all;
   class job marital education  month contact; 
   model contratado = job marital education contact month pdays previous NEMPLOYED	/ selection=none details=all  stats=all;
@@ -153,4 +156,39 @@ run;
 proc glm data=banco_sample;
   class job marital education contact month poutcome;
   model contratado  = marital contact month pdays previous NEMPLOYED job*education EURIBOR*job / solution e;
-run;           
+run;   
+
+/* Realizo la predicción para seleccionar el 10% de clientes */
+proc glm data=banco;
+   class job marital education contact month poutcome;
+   model contratado  = marital contact month pdays previous NEMPLOYED job*education EURIBOR*job;
+   output out=banco_pred p=contratadopred;
+run;   
+
+proc sort data=banco_pred out=banco_pred_ordenado;
+	by descending contratadopred;
+run;  
+
+proc SQL;
+	create table seleccion1 as
+		SELECT * FROM banco_pred_ordenado (OBS=4118);		
+quit;
+
+/* Me quedo con el resto de registros y selecciono el 5% de una muestra aleatoria */
+proc sql;
+	create table seleccion2 as
+		SELECT * FROM banco_pred_ordenado
+			WHERE contratadopred < 0.3010410813;
+quit;
+
+proc surveyselect data=seleccion2 out=seleccion3 seed=1979 
+	method=srs rate=.05;	
+run;
+
+/* Uno los dos datasets */
+data seleccion;
+	set seleccion1 seleccion3;
+run;
+
+
+

@@ -316,16 +316,16 @@ proc sql; drop table efectoslog,ajustelog,ajusteRlog,estimalog,modelolog; quit;
 
 ods noresults;
 %logistic (banco_sample, contratado, edad_1-edad_6 job_1-job_11 marital_1-marital_3
-           education_1-education_8 contact_1-contact_2 month_1-month_10 
-           campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
+           education_1-education_8 housing_1-housing_3 loan_1-loan_3 contact_1-contact_2 month_1-month_10 
+           day_1-day_5 campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
            EMPVARRATE_1-EMPVARRATE_3 INDPRICE_1-INDPRICE_3 INDCONF_1-INDCONF_3 
            EURIBOR_1-EURIBOR_4 NEMPLOYED_1-NEMPLOYED_4, ,12345, 12354);
 ods results;
 
 ods noresults;
 %logistic (banco_sample, contratado, edad_1-edad_6 job_1-job_11 marital_1-marital_3
-           education_1-education_8 contact_1-contact_2 month_1-month_10 
-           campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
+           education_1-education_8 housing_1-housing_3 loan_1-loan_3 contact_1-contact_2 month_1-month_10 
+           day_1-day_5 campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
            EMPVARRATE_1-EMPVARRATE_3 INDPRICE_1-INDPRICE_3 INDCONF_1-INDCONF_3 
            EURIBOR_1-EURIBOR_4 NEMPLOYED_1-NEMPLOYED_4,
 		   job_1*marital_1 job_1*marital_2 job_1*marital_3 
@@ -343,8 +343,8 @@ ods results;
 
 ods noresults;
 %logistic (banco_sample, contratado, edad_1-edad_6 job_1-job_11 marital_1-marital_3
-           education_1-education_8 contact_1-contact_2 month_1-month_10 
-           campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
+           education_1-education_8 housing_1-housing_3 loan_1-loan_3 contact_1-contact_2 month_1-month_10 
+           day_1-day_5 campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
            EMPVARRATE_1-EMPVARRATE_3 INDPRICE_1-INDPRICE_3 INDCONF_1-INDCONF_3 
            EURIBOR_1-EURIBOR_4 NEMPLOYED_1-NEMPLOYED_4,
 		   job_1*education_1 job_1*education_2 job_1*education_3 job_1*education_4 job_1*education_5 job_1*education_6 
@@ -362,8 +362,8 @@ ods noresults;
 ods results;
 ods noresults;
 %logistic (banco_sample, contratado, edad_1-edad_6 job_1-job_11 marital_1-marital_3
-           education_1-education_8 contact_1-contact_2 month_1-month_10 
-           campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
+           education_1-education_8 housing_1-housing_3 loan_1-loan_3 contact_1-contact_2 month_1-month_10 
+           day_1-day_5 campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
            EMPVARRATE_1-EMPVARRATE_3 INDPRICE_1-INDPRICE_3 INDCONF_1-INDCONF_3 
            EURIBOR_1-EURIBOR_4 NEMPLOYED_1-NEMPLOYED_4,
 	       job_1*education_1 job_1*education_2 job_1*education_3 job_1*education_4 job_1*education_5 job_1*education_6
@@ -403,8 +403,8 @@ ods noresults;
 ods results;	
 ods noresults;
 %logistic (banco_sample, contratado, edad_1-edad_6 job_1-job_11 marital_1-marital_3
-           education_1-education_8 contact_1-contact_2 month_1-month_10 
-           campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
+           education_1-education_8 housing_1-housing_3 loan_1-loan_3 contact_1-contact_2 month_1-month_10 
+           day_1-day_5 campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
            EMPVARRATE_1-EMPVARRATE_3 INDPRICE_1-INDPRICE_3 INDCONF_1-INDCONF_3 
            EURIBOR_1-EURIBOR_4 NEMPLOYED_1-NEMPLOYED_4,
 	       edad_1*marital_1 edad_1*marital_2 edad_1*marital_3 
@@ -428,8 +428,8 @@ ods noresults;
 ods results;
 ods noresults;
 %logistic (banco_sample, contratado, edad_1-edad_6 job_1-job_11 marital_1-marital_3
-           education_1-education_8 contact_1-contact_2 month_1-month_10 
-           campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
+           education_1-education_8 housing_1-housing_3 loan_1-loan_3 contact_1-contact_2 month_1-month_10 
+           day_1-day_5 campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
            EMPVARRATE_1-EMPVARRATE_3 INDPRICE_1-INDPRICE_3 INDCONF_1-INDCONF_3 
            EURIBOR_1-EURIBOR_4 NEMPLOYED_1-NEMPLOYED_4,
 	       education_1*marital_1 education_1*marital_2 education_1*marital_3 
@@ -477,8 +477,8 @@ ods noresults;
 ods results;		
 ods noresults;
 %logistic (banco_sample, contratado, edad_1-edad_6 job_1-job_11 marital_1-marital_3
-           education_1-education_8 contact_1-contact_2 month_1-month_10 
-           campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
+           education_1-education_8 housing_1-housing_3 loan_1-loan_3 contact_1-contact_2 month_1-month_10 
+           day_1-day_5 campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
            EMPVARRATE_1-EMPVARRATE_3 INDPRICE_1-INDPRICE_3 INDCONF_1-INDCONF_3 
            EURIBOR_1-EURIBOR_4 NEMPLOYED_1-NEMPLOYED_4,
 	       education_1*marital_1 education_1*marital_2 education_1*marital_3 
@@ -534,8 +534,8 @@ ods noresults;
 ods results;
 ods noresults;
 %logistic (banco_sample, contratado, edad_1-edad_6 job_1-job_11 marital_1-marital_3
-           education_1-education_8 contact_1-contact_2 month_1-month_10 
-           campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
+           education_1-education_8 housing_1-housing_3 loan_1-loan_3 contact_1-contact_2 month_1-month_10 
+           day_1-day_5 campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
            EMPVARRATE_1-EMPVARRATE_3 INDPRICE_1-INDPRICE_3 INDCONF_1-INDCONF_3 
            EURIBOR_1-EURIBOR_4 NEMPLOYED_1-NEMPLOYED_4,
 	       indprice_1*marital_1 indprice_1*marital_2 indprice_1*marital_3 
@@ -579,8 +579,8 @@ ods results;
 
 ods noresults;
 %logistic (banco_sample, contratado, edad_1-edad_6 job_1-job_11 marital_1-marital_3
-           education_1-education_8 contact_1-contact_2 month_1-month_10 
-           campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
+           education_1-education_8 housing_1-housing_3 loan_1-loan_3 contact_1-contact_2 month_1-month_10 
+           day_1-day_5 campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
            EMPVARRATE_1-EMPVARRATE_3 INDPRICE_1-INDPRICE_3 INDCONF_1-INDCONF_3 
            EURIBOR_1-EURIBOR_4 NEMPLOYED_1-NEMPLOYED_4,
 		   job_1*empvarrate_1 job_1*empvarrate_2 job_1*empvarrate_3 
@@ -604,8 +604,8 @@ ods results;
 
 ods noresults;
 %logistic (banco_sample, contratado, edad_1-edad_6 job_1-job_11 marital_1-marital_3
-           education_1-education_8 contact_1-contact_2 month_1-month_10 
-           campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
+           education_1-education_8 housing_1-housing_3 loan_1-loan_3 contact_1-contact_2 month_1-month_10 
+           day_1-day_5 campaign_1-campaign_4 previous poutcome_1-poutcome_3 pdays 
            EMPVARRATE_1-EMPVARRATE_3 INDPRICE_1-INDPRICE_3 INDCONF_1-INDCONF_3 
            EURIBOR_1-EURIBOR_4 NEMPLOYED_1-NEMPLOYED_4,
 		   job_1*EURIBOR_1 job_1*EURIBOR_2 job_1*EURIBOR_3 job_1*EURIBOR_4 
