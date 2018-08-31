@@ -97,7 +97,11 @@ data banco_sample;
 	else if 5181 < NEMPLOYED <= 5217 then NEMPLOYED = 3;
 	else NEMPLOYED = 4;
 run;
+<<<<<<< HEAD
 
+=======
+/*********************************************************************************************************/
+>>>>>>> a5d9c62cdf1be832a01c68a5e3d66fd4decb4f39
 %macro mglmselect (semi_ini, semi_fin, variables);
 ods trace on /listing;
 %do frac=3 %to 5;
@@ -140,9 +144,12 @@ proc sql; drop table modelos,efectos,ajuste,t_fraccion; quit;
 	  					 education*EMPVARRATE education*INDPRICE education*INDCONF education*EURIBOR 
 	  					 education*NEMPLOYED);	  					 
 
+<<<<<<< HEAD
 proc freq data=t_models (keep=effects);  tables effects /norow nocol nopercent; run;	  					 
 
 /* De los resultados obtenidos, me quedo con los dos modelos con mayor frecuencia */
+=======
+>>>>>>> a5d9c62cdf1be832a01c68a5e3d66fd4decb4f39
 proc glmselect data=banco_sample plots=all;
   class job marital education  month contact; 
   model contratado = job marital education contact month pdays previous NEMPLOYED	/ selection=none details=all  stats=all;
@@ -156,6 +163,7 @@ run;
 proc glm data=banco_sample;
   class job marital education contact month poutcome;
   model contratado  = marital contact month pdays previous NEMPLOYED job*education EURIBOR*job / solution e;
+<<<<<<< HEAD
 run;   
 
 /* Realizo la predicción para seleccionar el 10% de clientes */
@@ -192,3 +200,6 @@ run;
 
 
 
+=======
+run;           
+>>>>>>> a5d9c62cdf1be832a01c68a5e3d66fd4decb4f39
